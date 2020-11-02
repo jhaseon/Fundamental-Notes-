@@ -1,0 +1,38 @@
+# Fundamental Checklist 
+
+## Programming Fundamentals 
+- clear, robust, efficient code 
+- top-down design
+- modular 
+- informal analysis 
+- effective testing/debugging 
+
+## Standarad Libraries & programming paradigms 
+
+## Style 
+- standards 
+- practicies 
+- guidelines 
+
+## Testing 
+Creating/writing test cases to test and debug code 
+
+## Style vs Funcionality
+### Style 
+1. Modular 
+2. Data abstraction
+3. Readable 
+4. Commentary 
+a. Are your comments well placed, concise, informative 
+### Functionality
+1. Correctness 
+2. Efficiency 
+
+## 3 types of errors 
+1. Syntax: Not python
+2. Run time: Python but crash
+3. Logical: Python but does no crash -> requires human testing 
+
+## 79 characters per line 
+
+
