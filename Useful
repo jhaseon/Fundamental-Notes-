@@ -1,0 +1,106 @@
+# Useful notes to go back on 
+
+## Never trust no floats. 
+2 pts != 2 pts
+'''
+def almostEqual(d1, d2):
+    epsilon = 10**-10
+    return (abs(d2 - d1) < epsilon)
+'''
+
+## Short circuit 
+'''
+def yes():
+    return True
+
+def no():
+    return False
+
+def crash():
+    return 1/0 # crashes!
+
+print(no() and crash()) # Works!
+print(crash() and no()) # Crashes!
+print (yes() and crash()) # Never runs (due to crash), but would also crash (without short-circuiting)
+'''
+
+## Types vs instance 
+'''
+# Both type and isinstance can be used to type-check
+# In general, (isinstance(x, T)) will be more robust than (type(x) == T)
+
+print(type("abc") == str)
+print(isinstance("abc", str))
+'''
+
+## Avoid global variables 
+But you can use them as arguments!
+
+## Helper function
+- Supports the main function
+Should...
+1. be reused
+2. tested
+3. simplify logic 
+
+## Recommended starter functions 
+'''
+# There are a few functions from modules you'll definitely want to use in the assignments
+
+# First: the built-in round function has confusing behavior when rounding 0.5.
+# Use our function roundHalfUp to fix this.
+
+def roundHalfUp(d):
+    # Round to nearest with ties going away from zero.
+    # You do not need to understand how this function works.
+    import decimal
+    rounding = decimal.ROUND_HALF_UP
+    return int(decimal.Decimal(d).to_integral_value(rounding=rounding))
+
+print(round(0.5)) # This evaluates to 0 - what!
+print(round(1.5)) # And this will be 2 - so confusing!
+print(roundHalfUp(0.5)) # Now this will always round 0.5 up (to 1)
+print(roundHalfUp(1.5)) # This still rounds up too!
+
+# Second: when comparing floats, == doesn't work quite right.
+# Use almostEqual to compare floats instead
+
+print(0.1 + 0.1 == 0.2) # True, but...
+d1 = 0.1 + 0.1 + 0.1
+d2 = 0.3
+print(d1 == d2) # False!
+print(d1)       # prints 0.30000000000000004 (uh oh)
+print(d1 - d2)  # prints 5.55111512313e-17 (tiny, but non-zero!)
+# Moral: never use == with floats!
+
+# Python includes a builtin function math.isclose(), but that function
+# has some confusing behavior when comparing values close to 0.
+# Instead, let's just make our own version of isclose:
+
+def almostEqual(x, y):
+    return abs(x - y) < 10**-9
+
+# This will now work properly!
+print(almostEqual(0, 0.0000000000001))
+print(almostEqual(d1, d2))
+'''
+
+## Tests 
+assert()
+test the...
+1. tests
+2. function
+
+## if, elif, else
+- guarantees only one will be run 
+
+## Style 
+1. Negated Condition
+don't start with (if not (+)
+
+2. Empty if 
+don't start with if then pass
+3. use and instead of if 
+don't if then if if you can use one and 
+4. don't use if -> if .... when an else can do 
+5. Don't use 'arithmetic logic' or 'boolean logic'
