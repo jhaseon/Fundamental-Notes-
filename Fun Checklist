@@ -35,4 +35,12 @@ a. Are your comments well placed, concise, informative
 
 ## 79 characters per line 
 
+## Helper function
+- Supports the main function
+Should...
+1. be reused
+2. tested
+3. simplify logic 
+
+- put the modules needed inside the helper fuction
 
