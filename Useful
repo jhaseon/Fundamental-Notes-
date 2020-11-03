@@ -36,15 +36,6 @@ print(isinstance("abc", str))
 ## Avoid global variables 
 But you can use them as arguments!
 
-## Helper function
-- Supports the main function
-Should...
-1. be reused
-2. tested
-3. simplify logic 
-
-- put the modules needed inside the helper fuction
-
 ## Recommended starter functions 
 '''
 # There are a few functions from modules you'll definitely want to use in the assignments
