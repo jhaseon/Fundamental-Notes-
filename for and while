@@ -5,3 +5,5 @@
 # nth 
 
 ## continue is bad 
+
+## print statement with locals() + input() 
